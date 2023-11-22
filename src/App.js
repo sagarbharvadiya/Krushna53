@@ -1,26 +1,25 @@
 import React from 'react';
-import Header from './Components/Header/Header';
-import Banner from './Components/Banner/Banner';
-import AboutUs from './Components/About/About-us';
-import Services from './Components/Services/Services';
-import Blogs from './Components/Blogs/Blogs';
-import Clients from './Components/Clients/Clients';
-import Testimonials from './Components/Testimonials/Testimonials';
-import Footer from './Components/Footer/Footer';
+import { Route, Routes } from 'react-router-dom';
+import NewHeader from './Components/NewHeadr';
+import Home from './Page/Home';
+import SomeOfOurWorkDetails from './Components/SomeOfOurWorkDetails';
+import Contact from './Components/Contact';
+import Footer from './Components/Footer';
+import './style.css'
 
 function App() {
- return(
-  <>
-  <Header/>
-  <Banner/>
-  <AboutUs/>
-  <Services/>
-  <Blogs/>
-  <Clients/>
-  <Testimonials/>
-  <Footer/>
-  </>
- )
+    return (
+        <>
+            <NewHeader />
+            <Routes>
+                <Route exact path='/' element={<Home />} />
+                <Route exact path='/Home' element={<Home />} />
+                <Route exact path='/work/:productId' element={<SomeOfOurWorkDetails />} />
+            </Routes>
+            <Contact />
+            <Footer />
+        </>
+    )
 };
 
 export default App;
